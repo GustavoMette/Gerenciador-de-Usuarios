@@ -1,0 +1,29 @@
+@font-face {
+    font-family: sinoreta;
+    src: url(sinoreta/Sinoreta_PERSONAL_USE_ONLY.otf);
+}
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background: black no-repeat center/cover url(./images/img.jpg);
+    min-height: 100vh;
+    backdrop-filter: blur(5px);
+}
+
+.navbar{
+    justify-content: space-between;
+    background-color: #9200af;
+    padding: 30px;
+}
+
+.title {
+    color: white;
+    font-family: sinoreta;
+    text-align: center;
+    font-size: 40px;
+}
