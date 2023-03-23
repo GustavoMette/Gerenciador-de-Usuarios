@@ -13,17 +13,92 @@ body{
     background: black no-repeat center/cover url(./images/img.jpg);
     min-height: 100vh;
     backdrop-filter: blur(5px);
+ 
 }
 
 .navbar{
+    background-color: #7B728A;
+    padding: 20px;
+}
+
+.elementos {
+    display: flex;
     justify-content: space-between;
-    background-color: #9200af;
-    padding: 30px;
+}
+
+.wine {
+    font-family: 'WindSong', cursive;
+    color: whitesmoke;
+    margin-right: 30px;
+}
+
+.fa-right-from-bracket {
+    font-size: 30px;
+    color: whitesmoke;
+    text-align: center;
 }
 
 .title {
     color: white;
-    font-family: sinoreta;
-    text-align: center;
+    font-family: roboto;
     font-size: 40px;
+}
+
+.table {
+    display: flex;
+    margin-top: 10vh;
+    justify-content: center;
+    min-width: 20px;
+    backdrop-filter: blur( 13.5px );
+    -webkit-backdrop-filter: blur( 13.5px );
+    border-radius: 10px;
+    margin-left: 63.5vh;
+    margin-right: 63.5vh;
+    font-size: 20px;
+}
+
+td {
+    border: 2px solid black;
+    padding: 5px;
+    color: black;
+    border-radius: 10px;
+    background-color: #7B728A;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+
+th {
+    border: 2px solid black;    
+    border-radius: 10px;
+    background-color: #7B728A;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+
+button {
+    width: 70px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.footer {
+    background: #7B728A;
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.fa-linkedin {
+    display: flex;
+    padding: 5px;
+    font-size: 40px;
+    color: #28124d;
+    cursor: pointer;
+}
+
+.fa-linkedin:hover {
+    color: whitesmoke;
+    transition: 1s;
 }
