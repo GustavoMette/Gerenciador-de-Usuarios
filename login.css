@@ -10,22 +10,21 @@
 }
 
 body{
-    background: black no-repeat center/cover url(./images/vinhoetaças.jpg);
+    background: black no-repeat center/cover url(./images/vinho-e-taças.jpg);
     min-height: 100vh;
     backdrop-filter: blur(5px);
     display: grid;
     place-items: center;
 }
-.navbar{
+.menu{
     background: rgba(123, 114, 138, 0.9);
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 13.5px );
     -webkit-backdrop-filter: blur( 13.5px );
     border-radius: 80px;
-    width: 600px;
-    height: 600px;
-    left: 292px;
-    top: 112px;
+    width: 500px;
+    height: 500px;
+    margin: 10vh;
 }
 
 .title {
@@ -54,17 +53,19 @@ body{
 .login {
     display: grid;
     place-items: center;
-    margin-top: 50px;
+    margin-top: 40px;
     padding: 25px;
 }
 
 input {
     font-size: 25px;
+    
 }
 
 button {
+    display: flex;
     font-size: 25px;
-    border-radius: 10px;
+    margin-top: 5vh
 }
 
 .crie {
