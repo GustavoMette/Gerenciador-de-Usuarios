@@ -6,12 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciador de Usuários</title>
     <link rel="stylesheet" href="style.css"/>
-    <link rel="stylesheet" href="menu.js"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=WindSong&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="modal.js"></script>
   </head>
   <body>
 
@@ -25,45 +23,46 @@
       </div>
     </header>
 
-    <main>
-      <div>
-        <table class="table">
-            <tr>
-            <th>ID</th>
+  </div>
+  <button onclick="openModal()" id="new">Incluir</i></button>
+  
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
             <th>Nome</th>
-            <th>Telefone</th>
-            <th>Email</th>
-            <th>Endereço</th>
-            <th>Modificação</th>
-            </tr>
-            <tr>
-            <td>--DADOS--</td>
-            <td>--DADOS--</td>
-            <td>--DADOS--</td>
-            <td>--DADOS--</td>
-            <td>--DADOS--</td>
-            <td> <button class="buttons">Editar</button> <button class="buttons">Excluir</button> </td>
-            </tr>
-            </table>          
-      </div>
+            <th>Função</th>
+            <th>Salário</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
 
-      <button onclick="showModal" id="myBtn">Open Modal</button>
-      <div id="myModal" class="modal">
-      
-        <div class="modal-content">
-          <span class="close">&times;</span>
-          <p>Some text in the Modal..</p>
-        </div>
-      
+    <div class="modal-container">
+      <div class="modal">
+        <form>
+          <label for="m-nome">Nome</label>
+          <input id="m-nome" type="text" required />
+          
+          <label for="m-funcao">Função</label>
+          <input id="m-funcao" type="text" required />
+          
+          <label for="m-salario">Salário</label>
+          <input id="m-salario" type="number" required />
+          <button id="btnSalvar">Salvar</button>
+        </form>
       </div>
-      
-    </main>
-
+    </div>
+    
     <footer>
       <div class="footer">
         <i class="fa-brands fa-linkedin"></i>
       </div>
     </footer>
-
+    <script src="menu.js"></script>
   </body>
-</html>
+  </html>
