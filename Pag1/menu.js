@@ -1,8 +1,10 @@
 const modal = document.querySelector('.modal-container')
 const tbody = document.querySelector('tbody')
-const sNome = document.querySelector('#m-nome')
-const sFuncao = document.querySelector('#m-funcao')
-const sSalario = document.querySelector('#m-salario')
+const nome = document.querySelector('#nome')
+const email = document.querySelector('#email')
+const senha = document.querySelector('#senha')
+const idade = document.querySelector('#idade')
+const alcadas = document.querySelector('#alcadas')
 const btnSalvar = document.querySelector('#btnSalvar')
 
 let itens
@@ -10,7 +12,6 @@ let id
 
 function openModal(edit = false, index = 0) {
   modal.classList.add('active')
-
   modal.onclick = e => {
     if (e.target.className.indexOf('modal-container') !== -1) {
       modal.classList.remove('active')
@@ -18,14 +19,18 @@ function openModal(edit = false, index = 0) {
   }
 
   if (edit) {
-    sNome.value = itens[index].nome
-    sFuncao.value = itens[index].funcao
-    sSalario.value = itens[index].salario
+    nome.value = itens[index].nome
+    email.value = itens[index].senha
+    senha.value = itens[index].senha
+    idade.value = itens[index].idade
+    alcadas.value = itens[index].alcadas
     id = index
   } else {
-    sNome.value = ''
-    sFuncao.value = ''
-    sSalario.value = ''
+    nome.value = ''
+    email.value = ''
+    senha.value = ''
+    idade.value = ''
+    alcadas.value = ''
   }
   
 }
@@ -46,8 +51,10 @@ function insertItem(item, index) {
 
   tr.innerHTML = `
     <td>${item.nome}</td>
-    <td>${item.funcao}</td>
-    <td>R$ ${item.salario}</td>
+    <td>${item.email}</td>
+    <td>${item.senha}</td>
+    <td>${item.idade}</td>
+    <td>${item.alcadas}</td>
     <td class="acao">
       <button onclick="editItem(${index})"><i class='bx bx-edit' ></i></button>
     </td>
@@ -60,19 +67,22 @@ function insertItem(item, index) {
 
 btnSalvar.onclick = e => {
   
-  if (sNome.value == '' || sFuncao.value == '' || sSalario.value == '') {
+  if (nome.value == '' || email.value == '' || senha.value == ''|| idade.value == '' || alcadas.value == '') {
     return
   }
 
   e.preventDefault();
-
+  itens
   if (id !== undefined) {
-    itens[id].nome = sNome.value
-    itens[id].funcao = sFuncao.value
-    itens[id].salario = sSalario.value
+    itens[id].nome = nome.value
+    itens[id].email = email.value
+    itens[id].senha = senha.value
+    itens[id].idade = idade.value
+    itens[id].alcadas = alcadas.value
   } else {
-    itens.push({'nome': sNome.value, 'funcao': sFuncao.value, 'salario': sSalario.value})
+    itens.push({'nome': nome.value, 'email': email.value, 'senha': senha.value, 'idade': idade.value, 'alcadas': alcadas.value})
   }
+
 
   setItensBD()
 
