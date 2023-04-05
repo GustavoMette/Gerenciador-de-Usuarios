@@ -29,8 +29,15 @@ function openModal(edit = false, index = 0) {
     id = index
   } else {
     nome.value = ''
-    email.value = ''
-    senha.value = ''
+    emailfunction openModal(edit = false, index = 0) {
+  modal.classList.add('active')
+  modal.onclick = e => {
+    if (e.target.className.indexOf('modal-container') !== -1) {
+      modal.classList.remove('active')
+    }
+  }
+
+}.value = ''
     idade.value = ''
     alcadas.value = ''
   }
