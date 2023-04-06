@@ -103,8 +103,6 @@ button {
     transition: 1s;
 }
 
-/* youtube */
-
 .modal {
     display: none; 
     position: fixed;

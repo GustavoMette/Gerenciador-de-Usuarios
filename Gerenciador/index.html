@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Usuários</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=WindSong&display=swap" rel="stylesheet">
+  </head>
+  <body>
+
+    <header>
+      <div class="navbar">
+        <div class="elementos">
+        <h1 class="wine">Wine List</h1>
+        <h1 class="title">Gerenciador De Usuários</h1>
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </div>
+      </div>
+    </header>
+    <button onclick="openModal()" id="modal">Incluir</button>
+    <dialog class="modal-teste">
+      <div class="divTable">
+        <div class="modal-container">
+          <div class="modal">
+            <form>
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" required/>
+              
+              <label for="email">Email</label>
+              <input id="email" type="modal.classList.add('active')email" required />
+    
+              <label for="senha">Senha</label>
+              <input id="senha" type="password" required/>
+    
+              <label for="idade">Idade</label>
+              <input id="idade" type="number" required/>
+    
+              <label for="alcadas">Alçadas</label>
+              <select id="alcadas" name="Alçada" required>
+                <option value="Diretor">Presidente</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Funcionario">Secretário</option>
+              </select>
+              <button id="btnSalvar">Salvar</button>
+            </form>
+          </div>
+        </div>
+    </dialog>
+  
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Senha</th>
+            <th>Idade</th>
+            <th>Alçada</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </dialog>
+      </table>
+    </div>
+
+    <ul id="user-list">
+
+    </ul>
+    
+    <footer>
+      <div class="footer">
+        <i class="fa-brands fa-linkedin"></i>
+      </div>
+    </footer>
+    <script src="menu.js"></script>
+  </body>
+  </html>
