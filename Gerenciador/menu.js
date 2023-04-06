@@ -1,16 +1,16 @@
 const KEY_BD = '@usuariosestudo'
 
 
-var listaRegistros = {
+let listaRegistros = {
     ultimoIdGerado:0,
     usuarios:[]
 }
 
 
-var FILTRO = ''
+let FILTRO = ''
 
 
-function gravarBD(){
+function graletBD(){
     localStorage.setItem(KEY_BD, JSON.stringify(listaRegistros) )
 }
 
@@ -32,11 +32,11 @@ function pesquisar(value){
 function desenhar(){
     const tbody = document.getElementById('listaRegistrosBody')
     if(tbody){
-        var data = listaRegistros.usuarios;
+        let data = listaRegistros.usuarios;
         if(FILTRO.trim()){
             const expReg = eval(`/${FILTRO.trim().replace(/[^\d\w]+/g,'.*')}/i`)
             data = data.filter( usuario => {
-                return expReg.test( usuario.nome ) || expReg.test( usuario.fone )
+                return expReg.test( usuario.nome ) || expReg.test( usuario.email ) || expReg.test( usuario.senha) || expReg.test( usuario.idade ) || expReg.test( usuario.alcada)
             } )
         }
         data = data
@@ -47,7 +47,10 @@ function desenhar(){
                 return `<tr>
                         <td>${usuario.id}</td>
                         <td>${usuario.nome}</td>
-                        <td>${usuario.fone}</td>
+                        <td>${usuario.email}</td>
+                        <td>${usuario.senha}</td>
+                        <td>${usuario.idade}</td>
+                        <td>${usuario.alcada}</td>
                         <td>
                             <button onclick='vizualizar("cadastro",false,${usuario.id})'>Editar</button>
                             <button class='vermelho' onclick='perguntarSeDeleta(${usuario.id})'>Deletar</button>
@@ -58,22 +61,25 @@ function desenhar(){
     }
 }
 
-function insertUsuario(nome, fone){
+function insertUsuario(nome, email, senha, idade, alcada){
     const id = listaRegistros.ultimoIdGerado + 1;
     listaRegistros.ultimoIdGerado = id;
     listaRegistros.usuarios.push({
-        id, nome, fone
+        id, nome, email, senha, idade, alcada
     })
-    gravarBD()
+    graletBD()
     desenhar()
     vizualizar('lista')
 }
 
-function editUsuario(id, nome, fone){
-    var usuario = listaRegistros.usuarios.find( usuario => usuario.id == id )
+function editUsuario(id, nome, email, senha, idade, alcada){
+    let usuario = listaRegistros.usuarios.find( usuario => usuario.id == id )
     usuario.nome = nome;
-    usuario.fone = fone;
-    gravarBD()
+    usuario.email = email;
+    usuario.senha = senha;
+    usuario.idade = idade;
+    usuario.alcada = alcada;
+    graletBD()
     desenhar()
     vizualizar('lista')
 }
@@ -82,7 +88,7 @@ function deleteUsuario(id){
     listaRegistros.usuarios = listaRegistros.usuarios.filter( usuario => {
         return usuario.id != id
     } )
-    gravarBD()
+    graletBD()
     desenhar()
 }
 
@@ -95,7 +101,10 @@ function perguntarSeDeleta(id){
 
 function limparEdicao(){
     document.getElementById('nome').value = ''
-    document.getElementById('fone').value = ''
+    document.getElementById('email').value = ''
+    document.getElementById('senha').value = ''
+    document.getElementById('idade').value = ''
+    document.getElementById('alçada').value = ''
 }
 
 function vizualizar(pagina, novo=false, id=null){
@@ -107,7 +116,10 @@ function vizualizar(pagina, novo=false, id=null){
             if(usuario){
                 document.getElementById('id').value = usuario.id
                 document.getElementById('nome').value = usuario.nome
-                document.getElementById('fone').value = usuario.fone
+                document.getElementById('email').value = usuario.email
+                document.getElementById('senha').value = usuario.senha
+                document.getElementById('idade').value = usuario.idade
+                document.getElementById('alcada').value = usuario.alcada
             }
         }
         document.getElementById('nome').focus()
@@ -121,12 +133,15 @@ function submeter(e){
     const data = {
         id: document.getElementById('id').value,
         nome: document.getElementById('nome').value,
-        fone: document.getElementById('fone').value,
+        email: document.getElementById('email').value,
+        senha: document.getElementById('senha').value,
+        idade: document.getElementById('idade').value,
+        alcada: document.getElementById('alcada').value,
     }
     if(data.id){
-        editUsuario(data.id, data.nome, data.fone)
+        editUsuario(data.id, data.nome, data.email, data.senha, data.senha, data.idade, data.alcada)
     }else{
-        insertUsuario( data.nome, data.fone )
+        insertUsuario( data.nome, data.email, data.senha, data.idade, data.alcada )
     }
 }
 
