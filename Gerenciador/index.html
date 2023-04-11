@@ -1,155 +1,120 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuários</title>
-    <script type='text/javascript' src="main.js"></script>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gerenciador de Usuários</title>
+    <link rel="stylesheet" href="base.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=WindSong&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
 
-    <style>
-        #listaRegistros{ display: none; }
-        #cadastroRegistro{
-            display: none;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        body[page=lista] #listaRegistros{ display: block; }
-        body[page=cadastro] #cadastroRegistro{ display: flex; }
-
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 14px;
-        }
-
-        table{
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table th,
-        table td{
-            font-size: 14px;
-            padding: 10px 15px;
-            border: solid 1px #ccc;
-        }
-
-        button{
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            background-color: #07a;
-            color: #fff;
-            margin: 3px;
-            padding: 10px 15px;
-        }
-        button.cinza{
-            background-color: #ccc;
-            color: #666;
-        }
-        button.vermelho{
-            background-color: #a00;
-        }
-        button:hover{
-            opacity: 0.8;
-        }
-
-        input{
-            border: solid 1px #ccc;
-            border-radius: 4px;
-            padding: 10px;
-        }
-
-        .label>div{
-            display: flex;
-        }
-        .label>div>input{
-            flex: 1;
-        }
-    </style>
+    <header>
+      <div class="navbar">
+        <div class="elementos">
+        <h1 class="wine">Wine List</h1>
+        <h1 class="title">Gerenciador De Usuários</h1>
+        <i class="fa-solid fa-right-from-bracket"></i>
+      </div>
+      </div>
+    </header>
 
 </head>
 <body page='lista'>
+  
+  <div id='listaRegistros'>
+      
+      <div class="all">
+      <div style='display: flex;'>
+          <input class="pesquisar" style='flex:1' placeholder="PESQUISAR" autofocus id='inputPesquisa' />
+      </div>
+
+      <table>
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Senha</th>
+                  <th>Idade</th>
+                  <th>Alçada</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody id='listaRegistrosBody'></tbody>
+      </table>
+
+      <div>
+          <button onclick="vizualizar('cadastro', true)">Novo usuário</button>
+        </div>
+      </div>
+
+  </div>
+
+  <form id='cadastroRegistro'>
+
+      <div class='label'>
+          <div>ID</div>
+          <div>
+              <input type='number' readonly id='id' />
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Nome</div>
+          <div>
+              <input id='nome' />
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Email</div>
+          <div>
+              <input type='email' id='email' />
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Senha</div>
+          <div>
+              <input type='password' id='senha'/>
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Idade</div>
+          <div>
+              <input type='number' id='idade' />
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Alçada</div>
+          <div>
+              <input type='tel' id='alcada' />
+          </div>
+      </div>
+
+      <div>
+          <button type="submit">Salvar</button>
+          <button onclick="vizualizar('lista')" class="cinza" type='button'>Cancelar</button>
+      </div>
+
+      <script src="menu.js"></script> 
+
+  </form>
+
     
-    <div id='listaRegistros'>
-
-        <div style='display: flex;'>
-            <input style='flex:1' placeholder="PESQUISAR" autofocus id='inputPesquisa' />
-        </div>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Senha</th>
-                    <th>Idade</th>
-                    <th>Alçada</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody id='listaRegistrosBody'></tbody>
-        </table>
-
-        <div>
-            <button onclick="vizualizar('cadastro', true)">Novo usuário</button>
-        </div>
-
-    </div>
-
-    <form id='cadastroRegistro'>
-
-        <div class='label'>
-            <div>ID</div>
-            <div>
-                <input type='number' readonly id='id' />
-            </div>
-        </div>
-
-        <div class='label'>
-            <div>Nome</div>
-            <div>
-                <input id='nome' />
-            </div>
-        </div>
-
-        <div class='label'>
-            <div>Email</div>
-            <div>
-                <input type='email' id='email' />
-            </div>
-        </div>
-
-        <div class='label'>
-            <div>Senha</div>
-            <div>
-                <input type='password' id='senha'/>
-            </div>
-        </div>
-
-        <div class='label'>
-            <div>Idade</div>
-            <div>
-                <input type='number' id='idade' />
-            </div>
-        </div>
-
-        <div class='label'>
-            <div>Alçada</div>
-            <div>
-                <input type='tel' id='alcada' />
-            </div>
-        </div>
-
-        <div>
-            <button type="submit">Salvar</button>
-            <button onclick="vizualizar('lista')" class="cinza" type='button'>Cancelar</button>
-        </div>
-
-        <script src="menu.js"></script> 
-
-    </form>
-
-</body>
-</html>
+    <footer>
+      <div class="footer">
+        <i class="fa-brands fa-linkedin"></i>
+      </div>
+    </footer>
+    <script src="menu.js"></script>
+  </body>
+  </html>
