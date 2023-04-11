@@ -104,7 +104,7 @@ function limparEdicao(){
     document.getElementById('email').value = ''
     document.getElementById('senha').value = ''
     document.getElementById('idade').value = ''
-    document.getElementById('alçada').value = ''
+    document.getElementById('alcada').value = ''
 }
 
 function vizualizar(pagina, novo=false, id=null){
@@ -129,7 +129,7 @@ function vizualizar(pagina, novo=false, id=null){
 
 
 function submeter(e){
-    e.preventDefault()
+    
     const data = {
         id: document.getElementById('id').value,
         nome: document.getElementById('nome').value,

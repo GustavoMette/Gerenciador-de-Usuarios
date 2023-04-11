@@ -22,59 +22,151 @@
       </div>
       </div>
     </header>
-    <button onclick="openModal()" id="modal">Incluir</button>
-    <dialog class="modal-teste">
-      <div class="divTable">
-        <div class="modal-container">
-          <div class="modal">
-            <form>
-              <label for="nome">Nome</label>
-              <input id="nome" type="text" required/>
-              
-              <label for="email">Email</label>
-              <input id="email" type="modal.classList.add('active')email" required />
     
-              <label for="senha">Senha</label>
-              <input id="senha" type="password" required/>
-    
-              <label for="idade">Idade</label>
-              <input id="idade" type="number" required/>
-    
-              <label for="alcadas">Alçadas</label>
-              <select id="alcadas" name="Alçada" required>
-                <option value="Diretor">Presidente</option>
-                <option value="Gerente">Gerente</option>
-                <option value="Funcionario">Secretário</option>
-              </select>
-              <button id="btnSalvar">Salvar</button>
-            </form>
-          </div>
-        </div>
-    </dialog>
+    <style>
+      #listaRegistros{ display: none; }
+      #cadastroRegistro{
+          display: none;
+          flex-direction: column;
+          gap: 30px;
+      }
+
+      body[page=lista] #listaRegistros{ display: block; }
+      body[page=cadastro] #cadastroRegistro{ display: flex; }
+
+      body{
+          font-family: Arial, Helvetica, sans-serif;
+          font-size: 14px;
+      }
+
+      table{
+          width: 100%;
+          border-collapse: collapse;
+      }
+      table th,
+      table td{
+          font-size: 14px;
+          padding: 10px 15px;
+          border: solid 1px #ccc;
+      }
+
+      button{
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          background-color: #07a;
+          color: #fff;
+          margin: 3px;
+          padding: 10px 15px;
+      }
+      button.cinza{
+          background-color: #ccc;
+          color: #666;
+      }
+      button.vermelho{
+          background-color: #a00;
+      }
+      button:hover{
+          opacity: 0.8;
+      }
+
+      input{
+          border: solid 1px #ccc;
+          border-radius: 4px;
+          padding: 10px;
+      }
+
+      .label>div{
+          display: flex;
+      }
+      .label>div>input{
+          flex: 1;
+      }
+  </style>
+
+</head>
+<body page='lista'>
   
-    <div class="divTable">
+  <div id='listaRegistros'>
+
+      <div style='display: flex;'>
+          <input style='flex:1' placeholder="PESQUISAR" autofocus id='inputPesquisa' />
+      </div>
+
       <table>
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Senha</th>
-            <th>Idade</th>
-            <th>Alçada</th>
-            <th class="acao">Editar</th>
-            <th class="acao">Excluir</th>
-          </tr>
-        </thead>
-        <tbody>
-        </tbody>
-        </dialog>
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Senha</th>
+                  <th>Idade</th>
+                  <th>Alçada</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody id='listaRegistrosBody'></tbody>
       </table>
-    </div>
 
-    <ul id="user-list">
+      <div>
+          <button onclick="vizualizar('cadastro', true)">Novo usuário</button>
+      </div>
 
-    </ul>
+  </div>
+
+  <form id='cadastroRegistro'>
+
+      <div class='label'>
+          <div>ID</div>
+          <div>
+              <input type='number' readonly id='id' />
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Nome</div>
+          <div>
+              <input id='nome' />
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Email</div>
+          <div>
+              <input type='email' id='email' />
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Senha</div>
+          <div>
+              <input type='password' id='senha'/>
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Idade</div>
+          <div>
+              <input type='number' id='idade' />
+          </div>
+      </div>
+
+      <div class='label'>
+          <div>Alçada</div>
+          <div>
+              <input type='tel' id='alcada' />
+          </div>
+      </div>
+
+      <div>
+          <button type="submit">Salvar</button>
+          <button onclick="vizualizar('lista')" class="cinza" type='button'>Cancelar</button>
+      </div>
+
+      <script src="menu.js"></script> 
+
+  </form>
+
     
     <footer>
       <div class="footer">

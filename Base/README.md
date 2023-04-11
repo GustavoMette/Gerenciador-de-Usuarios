@@ -113,3 +113,67 @@ const getItensBD = () => JSON.parse(localStorage.getItem('dbfunc')) ?? []
 const setItensBD = () => localStorage.setItem('dbfunc', JSON.stringify(itens))
 
 loadItens()
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+<button onclick="openModal()" id="modal">Incluir</button>
+    <dialog class="modal-teste">
+      <div class="divTable">
+        <div class="modal-container">
+          <div class="modal">
+            <form>
+              <label for="nome">Nome</label>
+              <input id="nome" type="text" required/>
+              
+              <label for="email">Email</label>
+              <input id="email" type="modal.classList.add('active')email" required />
+    
+              <label for="senha">Senha</label>
+              <input id="senha" type="password" required/>
+    
+              <label for="idade">Idade</label>
+              <input id="idade" type="number" required/>
+    
+              <label for="alcadas">Alçadas</label>
+              <select id="alcadas" name="Alçada" required>
+                <option value="Diretor">Presidente</option>
+                <option value="Gerente">Gerente</option>
+                <option value="Funcionario">Secretário</option>
+              </select>
+              <button id="btnSalvar">Salvar</button>
+            </form>
+          </div>
+        </div>
+    </dialog>
+  
+    <div class="divTable">
+      <table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Senha</th>
+            <th>Idade</th>
+            <th>Alçada</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        </dialog>
+      </table>
+    </div>
+
+    <ul id="user-list">
+
+    </ul>
