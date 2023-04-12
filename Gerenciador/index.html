@@ -43,6 +43,7 @@
                   <th>Senha</th>
                   <th>Idade</th>
                   <th>Alçada</th>
+                  <th>Permissões</th>
                   <th></th>
               </tr>
           </thead>
@@ -94,10 +95,17 @@
       </div>
 
       <div class='label'>
+        <div class="custom-select">
           <div>Alçada</div>
           <div>
-              <input type='tel' id='alcada' />
+              <select name="Alçada" id="alcada">
+                <option value="0">Alçada:</option>
+                <option value="1">Presidente</option>
+                <option value="2">Gerente</option>
+                <option value="3">Secrtário</option>
+              </select>
           </div>
+        </div>
       </div>
 
       <div>

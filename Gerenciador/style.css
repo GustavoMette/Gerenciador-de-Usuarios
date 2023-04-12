@@ -148,6 +148,12 @@ button {
     border-radius: 5px;
 }
 
+.custom-select {
+  position: relative;
+  
+}
+
+
 .footer {
     background: #7B728A;
     width: 100%;
