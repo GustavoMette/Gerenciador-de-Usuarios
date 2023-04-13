@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gerenciador de Usuários</title>
-    <link rel="stylesheet" href="base.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,7 +58,7 @@
 
   <form id='cadastroRegistro'>
 
-      <div class='label'>
+      <div style="display: none;" class='label'>
           <div>ID</div>
           <div>
               <input type='number' readonly id='id' />
@@ -69,42 +68,41 @@
       <div class='label'>
           <div>Nome</div>
           <div>
-              <input id='nome' />
+              <input required id='nome' />
           </div>
       </div>
 
       <div class='label'>
           <div>Email</div>
           <div>
-              <input type='email' id='email' />
+              <input required type='email' id='email' />
           </div>
       </div>
 
       <div class='label'>
           <div>Senha</div>
           <div>
-              <input type='password' id='senha'/>
+              <input required type='password' id='senha'/>
           </div>
       </div>
 
       <div class='label'>
           <div>Idade</div>
           <div>
-              <input type='number' id='idade' />
+              <input required type='number' id='idade' />
           </div>
       </div>
 
       <div class='label'>
-        <div class="custom-select">
-          <div>Alçada</div>
           <div>
-              <select name="Alçada" id="alcada">
-                <option value="0">Alçada:</option>
-                <option value="1">Presidente</option>
-                <option value="2">Gerente</option>
-                <option value="3">Secrtário</option>
+            <div class="custom-select">
+              <select required name="Alçada" id="alcada">
+                <option selected disabled value="">Alçada:</option>
+                <option value="presidente">Presidente</option>
+                <option value="gerente">Gerente</option>
+                <option value="secretario">Secrtário</option>
               </select>
-          </div>
+            </div>
         </div>
       </div>
 
@@ -118,11 +116,10 @@
   </form>
 
     
-    <footer>
-      <div class="footer">
-        <i class="fa-brands fa-linkedin"></i>
-      </div>
-    </footer>
-    <script src="menu.js"></script>
+    <!-- <footer> -->
+      <!-- <div class="footer"> -->
+        <!-- <i class="fa-brands fa-linkedin"></i> -->
+      <!-- </div> -->
+    <!-- </footer> -->
   </body>
   </html>

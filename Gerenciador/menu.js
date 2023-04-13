@@ -1,4 +1,5 @@
 const KEY_BD = '@usuariosestudo'
+console.log('passo 7')
 
 
 let listaRegistros = {
@@ -51,6 +52,7 @@ function desenhar(){
                         <td>${usuario.senha}</td>
                         <td>${usuario.idade}</td>
                         <td>${usuario.alcada}</td>
+                        <td>${usuario.permissoes}</td>
                         <td>
                             <button class='editar' onclick='vizualizar("cadastro",false,${usuario.id})'>Editar</button>
                             <button class='vermelho' onclick='perguntarSeDeleta(${usuario.id})'>Deletar</button>
@@ -59,6 +61,7 @@ function desenhar(){
             } )
         tbody.innerHTML = data.join('')
     }
+    console.log('passo 6')
 }
 
 function insertUsuario(nome, email, senha, idade, alcada){
@@ -70,6 +73,7 @@ function insertUsuario(nome, email, senha, idade, alcada){
     graletBD()
     desenhar()
     vizualizar('lista')
+    console.log('passo 5')
 }
 
 function editUsuario(id, nome, email, senha, idade, alcada){
@@ -79,6 +83,8 @@ function editUsuario(id, nome, email, senha, idade, alcada){
     usuario.senha = senha;
     usuario.idade = idade;
     usuario.alcada = alcada;
+    
+
     graletBD()
     desenhar()
     vizualizar('lista')
@@ -96,6 +102,7 @@ function perguntarSeDeleta(id){
     if(confirm('Quer deletar o registro de id '+id)){
         deleteUsuario(id)
     }
+    console.log('passo 4')
 }
 
 
@@ -105,6 +112,7 @@ function limparEdicao(){
     document.getElementById('senha').value = ''
     document.getElementById('idade').value = ''
     document.getElementById('alcada').value = ''
+    
 }
 
 function vizualizar(pagina, novo=false, id=null){
@@ -120,11 +128,14 @@ function vizualizar(pagina, novo=false, id=null){
                 document.getElementById('senha').value = usuario.senha
                 document.getElementById('idade').value = usuario.idade
                 document.getElementById('alcada').value = usuario.alcada
+                
             }
         }
         document.getElementById('nome').focus()
     }
+    console.log('passo 3')
 }
+
 
 
 
@@ -139,11 +150,31 @@ function submeter(e){
         alcada: document.getElementById('alcada').value,
     }
     if(data.id){
-        editUsuario(data.id, data.nome, data.email, data.senha, data.senha, data.idade, data.alcada)
+        editUsuario(data.id, data.nome, data.email, data.senha, data.idade, data.alcada)
     }else{
         insertUsuario( data.nome, data.email, data.senha, data.idade, data.alcada )
     }
+    console.log('passo 2')
 }
+
+// function submeter(e){
+    
+//     const data = {
+//         id: document.getElementById('id').value,
+//         nome: document.getElementById('nome').value,
+//         email: document.getElementById('email').value,
+//         senha: document.getElementById('senha').value,
+//         idade: document.getElementById('idade').value,
+//         alcada: document.getElementById('alcada').value,
+//         permissoes: document.getElementById('permissoes').value,
+//     }
+//     if(data.id){
+//         editUsuario(data.id, data.nome, data.email, data.senha, data.senha, data.idade, data.alcada, data.permissoes)
+//     }else{
+//         insertUsuario( data.nome, data.email, data.senha, data.idade, data.alcada, data.permissoes )
+//     }
+//     console.log('passo 2')
+// }
 
 
 window.addEventListener('load', () => {
@@ -152,5 +183,6 @@ window.addEventListener('load', () => {
     document.getElementById('inputPesquisa').addEventListener('keyup', e => {
         pesquisar(e.target.value)
     })
+    console.log('passo 1')
 
 })
