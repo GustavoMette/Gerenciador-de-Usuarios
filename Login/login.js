@@ -1,34 +1,15 @@
-console.log(123)
-let usuarioCadastrado = {
-    usuarios:[]
-}
 
+function logarbotao() {
+    const email = document.getElementById('email').value;
+    const senha = document.getElementById('senha').value;
+    const bd =  JSON.parse(localStorage.getItem(KEY_BD));
 
-let FILTRO = ''
-
-
-function graletBD(){
-    localStorage.setItem(KEY_BD, JSON.stringify(usuarioCadastrado) )
-}
-
-function lerBD(){
-    const data = localStorage.getItem(KEY_BD)
-    if(data){
-        listaRegistros = JSON.parse(data)
-    }
-}
-
-function logar(){
-
-    var login = document.getElementById(data.login).value;
-    var senha = document.getElementById(data.senha).value;
-
-    if(login == data.login && senha == data.senha){
-        alert('Sucesso');
-      window.location.href = "home.html";
-    }else{
-        alert('Usuario ou senha incorretos');
-    }
-    
-
+    for(let i=0;i<bd.usuarios.length;i++){
+        if(bd.usuarios[i].email === email && bd.usuarios[i].senha === senha) {
+            window.location.href = "/Gerenciador/index.html"
+            return true
+        } else {
+            alert("Email ou senha invalidos") 
+        }
+    }  
 }

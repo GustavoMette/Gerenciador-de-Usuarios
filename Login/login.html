@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="login.js">
+    <script src="login.js"></script>
+    <script src="../Gerenciador/menu.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=WindSong&display=swap" rel="stylesheet">
     <title>Login</title>
@@ -13,6 +14,10 @@
 <body>
 
     <header>
+        
+      </header>
+
+      <main>
         <div class="menu">
           <div class="title">
           <h1 class="wine">Wine List</h1>
@@ -21,22 +26,17 @@
           <i class="fa-solid fa-user"></i>
         </div>
 
-        <form onsubmit="logar()">
+        <div>
           <div class="login">
           <input name="Email" type="email" placeholder="Seu Email" id="email">
           <br>
           <input name="Senha" type="password" placeholder="Sua Senha" id="senha">
           <br>
-          <button class="botao" onclick="logar(); return false">Enviar</button>
-        </form>
-
-          </div>
+          <button onclick="logarbotao()" class="botao" >Enviar</button>
           </div>
         </div>
-      </header>
 
-      <main>
-        
+        </div>
       </main>
    
 </body>

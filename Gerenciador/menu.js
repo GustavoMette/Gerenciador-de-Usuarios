@@ -52,7 +52,6 @@ function desenhar(){
                         <td>${usuario.senha}</td>
                         <td>${usuario.idade}</td>
                         <td>${usuario.alcada}</td>
-                        <td>${usuario.permissoes}</td>
                         <td>
                             <button class='editar' onclick='vizualizar("cadastro",false,${usuario.id})'>Editar</button>
                             <button class='vermelho' onclick='perguntarSeDeleta(${usuario.id})'>Deletar</button>
@@ -156,26 +155,6 @@ function submeter(e){
     }
     console.log('passo 2')
 }
-
-// function submeter(e){
-    
-//     const data = {
-//         id: document.getElementById('id').value,
-//         nome: document.getElementById('nome').value,
-//         email: document.getElementById('email').value,
-//         senha: document.getElementById('senha').value,
-//         idade: document.getElementById('idade').value,
-//         alcada: document.getElementById('alcada').value,
-//         permissoes: document.getElementById('permissoes').value,
-//     }
-//     if(data.id){
-//         editUsuario(data.id, data.nome, data.email, data.senha, data.senha, data.idade, data.alcada, data.permissoes)
-//     }else{
-//         insertUsuario( data.nome, data.email, data.senha, data.idade, data.alcada, data.permissoes )
-//     }
-//     console.log('passo 2')
-// }
-
 
 window.addEventListener('load', () => {
     lerBD()
